@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.idea/
+
+results/
+styles/
+content/
+
+style_transfer1.py
+style_transfer2.py
+style_transfer3.py
+
