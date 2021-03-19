@@ -1,6 +1,3 @@
-<script type="text/x-mathjax-config">   MathJax.Hub.Config({     tex2jax: {       inlineMath: [ ['$','$'], ["\\(","\\)"] ],       processEscapes: true     }   }); </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
 # Style-Transfer
 
 A style transfer demo
@@ -26,12 +23,12 @@ There are three inputs: the content image, the style image, and the target image
 Gram Matrix $G$ is a statistical representation of style. It looks suspiciously like autocorrelation matrix.
 
 - "Auto" (self) - correlation between a thing and itself
+
 - "Correlation" - how related one thing is to another
+
 - "Autocorrelation" - how related X is to itself
 
-$$
-G = \frac{1}{N} X X^T
-$$
+    <img src="http://latex.codecogs.com/gif.latex?G = \frac{1}{N} X X^T" />
 
 Be noticed that The Gram Matrix $G$ is a matrix, therefor 2D, but the output of convolution $X$ is 3D, so the first step is **flatten** $X$ along the spatial dimension, and the second step is **transpose** (if needed; different libraries use different ordering conventions) so that "color" / "feature maps" comes first. If `X.shape` is $(C, HW)$, then `G.shape` is $(C, C)$. By doing this, the spatial dimension disappears, this is make sense because when it comes to style, we don't care about *where* something occurred in the image.
 
@@ -54,13 +51,10 @@ Be noticed that The Gram Matrix $G$ is a matrix, therefor 2D, but the output of 
 **Total loss**
 
 Add these the content loss and the style loss together to get the total loss
-$$
-L = \alpha L_{content} + \beta L_{style}
-$$
 
-$$
-X^* = argmin_{X} L
-$$
+<img src="http://latex.codecogs.com/gif.latex?L = \alpha L_{content} + \beta L_{style}" />
+
+<img src="http://latex.codecogs.com/gif.latex?X^* = argmin_{X} L" />
 
 ### Results
 
